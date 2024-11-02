@@ -1,0 +1,16 @@
+# /etc/systemd/system/server.service
+[Unit]
+Description=newsbot_server
+After=network.target
+
+[Service]
+WorkingDirectory=<WORKDIR>
+Environment="PROXY_API=<OPENAIKEY>"
+Environment="INTERNAL_API=f9V90C2pX8Yc8Zju"
+Environment="PUZZLE_KEY=<PUZZLEKEY>"
+Environment="BOT_TOKEN=<BOTTOKEN>"
+ExecStart=/usr/local/bin/gunicorn --bind 0.0.0.0:5000 server:app
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

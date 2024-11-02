@@ -1,0 +1,16 @@
+# /etc/systemd/system/news_checker.service
+[Unit]
+Description=newsbot_checker
+After=network.target
+
+[Service]
+WorkingDirectory=<WORKDIR>
+Environment="PROXY_API=<OPENAIKEY>"
+Environment="INTERNAL_API=f9V90C2pX8Yc8Zju"
+Environment="PUZZLE_KEY=<PUZZLEKEY>"
+Environment="BOT_TOKEN=<BOTTOKEN>"
+ExecStart=/usr/bin/python3 <PATH TO news_checker.py>
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
