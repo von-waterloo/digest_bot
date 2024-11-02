@@ -16,15 +16,3 @@ services:
       - .:/app
     restart: unless-stopped
 
-  news-checker:
-    build:
-      context: .
-      dockerfile: Dockerfile.news_checker
-    environment:
-      - PROXY_API=${PROXY_API}
-      - INTERNAL_API=${INTERNAL_API}
-      - PUZZLE_KEY=${PUZZLE_KEY}
-      - BOT_TOKEN=${BOT_TOKEN}
-    volumes:
-      - .:/app
-    restart: unless-stopped

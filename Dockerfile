@@ -10,6 +10,6 @@ COPY . /app
 # Устанавливаем зависимости
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Запускаем сервер с помощью Gunicorn на порту 5000
+# Запускаем сервер с помощью Gunicorn на порту 5000 и запускаем news_checker.py
 EXPOSE 5000
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "server:app"]
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:5000 server:app & python news_checker.py"]

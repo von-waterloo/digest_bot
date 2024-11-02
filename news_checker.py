@@ -125,7 +125,6 @@ def get_bot_users():
             "page": pagecount,
         }
         ans = requests.get(url="https://api.puzzlebot.top/", params=params)
-        print(ans.text)
         ans=ans.json()["data"]
         for a in ans:
             outL.append(a["user_id"])
