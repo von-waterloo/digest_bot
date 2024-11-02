@@ -10,13 +10,6 @@ COPY . /app
 # Устанавливаем зависимости
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Устанавливаем переменные окружения для Flask
-ENV FLASK_APP=server.py
-ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_RUN_PORT=5000
-
-# Открываем порт 5000 для внешнего доступа
+# Запускаем сервер с помощью Gunicorn на порту 5000
 EXPOSE 5000
-
-# Запускаем сервер
-CMD ["flask", "run"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "server:app"]
