@@ -10,6 +10,13 @@ COPY . /app
 # Устанавливаем зависимости
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Запускаем сервер на порту 5000
+# Устанавливаем переменные окружения для Flask
+ENV FLASK_APP=server.py
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=5000
+
+# Открываем порт 5000 для внешнего доступа
 EXPOSE 5000
-CMD ["python", "server.py"]
+
+# Запускаем сервер
+CMD ["flask", "run"]
