@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Запускаем сервер с помощью Gunicorn на порту 5000 и запускаем news_checker.py
 EXPOSE 5000
-CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:5000 server:app & python news_checker.py"]
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:5000 server:app & python3 news_checker.py"]
