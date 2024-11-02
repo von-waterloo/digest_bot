@@ -121,7 +121,7 @@ def get_bot_users():
         params = {
             "token": puzzle_key,
             "method": "getUsersInChat",
-            "chat_id": "7577554601",
+            "chat_id": "7931303236",
             "page": pagecount,
         }
         ans = requests.get(url="https://api.puzzlebot.top/", params=params)

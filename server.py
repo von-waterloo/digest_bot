@@ -8,6 +8,7 @@ from db import init_db, get_connection  # Импортируем функции 
 load_dotenv()
 app = Flask(__name__)
 
+
 # Инициализация базы данных
 init_db()
 proxyapi = os.getenv("PROXY_API")
