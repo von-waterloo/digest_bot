@@ -1,5 +1,5 @@
 import sqlite3
-
+print('PFGG')
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 from threading import Thread
@@ -189,6 +189,7 @@ def get_need_news_count(user):
     ans = requests.get(url="https://api.puzzlebot.top/", params=params).json()["data"]
     return ans
 def news_checker():
+    print('Запускаюсь')
     while True:
         connection, cursor = get_connection()
         userlist = get_bot_users()
