@@ -168,7 +168,7 @@ def send_news(user, cursor, connection):
             send_telegram_message(user,"Новостная лента еще не сформирована!")
             send_menu(user)
             return True
-    send_end_menu(user)
+    # send_end_menu(user)
     return True
 
 def get_news_count(userid,cursor):
@@ -189,11 +189,9 @@ def get_need_news_count(user):
     ans = requests.get(url="https://api.puzzlebot.top/", params=params).json()["data"]
     return ans
 def news_checker():
-    print('Запускаюсь')
     while True:
         connection, cursor = get_connection()
         userlist = get_bot_users()
-        print("Запустил проверку!")
         for user in userlist:
             channel_list = get_channels(user, cursor)
             for channel in channel_list:
