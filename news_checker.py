@@ -1,5 +1,4 @@
 import sqlite3
-print('PFGG')
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 from threading import Thread
@@ -15,7 +14,8 @@ internalapi = os.getenv("INTERNAL_API")
 puzzle_key = os.getenv("PUZZLE_KEY")
 api_point = "http://127.0.0.1:5000/fusion"
 bot_token = os.getenv("BOT_TOKEN")
-client = OpenAI(api_key=proxyapi)
+client = OpenAI(api_key=proxyapi,
+                base_url = "https://api.proxyapi.ru/openai/v1")
 app = Flask(__name__)
 def init_db():
     connection = sqlite3.connect("news.db", check_same_thread=False)

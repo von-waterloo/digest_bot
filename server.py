@@ -18,7 +18,8 @@ internalapi = os.getenv("INTERNAL_API")
 puzzle_key = os.getenv("PUZZLE_KEY")
 api_point = "http://127.0.0.1:5000/fusion"
 bot_token = os.getenv("BOT_TOKEN")
-client = OpenAI(api_key=proxyapi)
+client = OpenAI(api_key=proxyapi,
+                base_url = "https://api.proxyapi.ru/openai/v1")
 def get_news_count(userid,cursor):
     channel_list = get_channels(userid, cursor)
     news_count = 0
